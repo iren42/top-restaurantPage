@@ -52,19 +52,26 @@ li {
 }
 
 button {
-    padding: var(--spacing-xs) var(--spacing-xs);
     cursor: pointer;
     font-weight: 900;
     border: none;
-    border-bottom: solid var(--foreground);
     color: var(--foreground);
     background-color: var(--background);
+}
+
+h2 {
+    margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+    margin-bottom: var(--spacing-xs);
 }
 
 p,
 span {
     line-height: var(--lh);
     overflow: hidden;
+    width: 75ch;
 }
 
 header {
@@ -72,24 +79,36 @@ header {
     justify-content: space-between;
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
+
+    & button {
+        padding: var(--spacing-xs) var(--spacing-xs);
+        border-bottom: solid var(--foreground);
+    }
+
+    & ul {
+        display: flex;
+        gap: var(--spacing-sm);
+    }
 }
 
-header nav ul {
+footer {
     display: flex;
+    justify-content: center;
     gap: var(--spacing-sm);
+
+    & p {
+        text-align: center;
+    }
+}
+
+#content {
+    height: fit-content;
 }
 
 .homeContent {
-    height: 100%;
-
-    & > * {
-        padding-bottom: var(--spacing-md);
-    }
-
     & > *:not(:first-child) {
-        padding-top: var(--spacing-md);
-        padding-left: var(--spacing-xl);
-        padding-right: var(--spacing-xl);
+        max-width: 1080px;
+        margin: 0 auto;
     }
 
     & > .bgImg {
@@ -101,7 +120,43 @@ header nav ul {
         background-size: cover;
     }
 
+}
+
+.menuContent {
+    max-width: 1080px;
+    margin: 0 auto;
+
     & h2 {
-        margin-bottom: var(--spacing-sm);
+        margin-top: var(--spacing-lg);
+    }
+
+    & .row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    & img {
+        border-radius: 6px;
+    }
+}
+
+.aboutContent {
+    max-width: 1080px;
+    margin: 0 auto;
+
+    & .phoneNumber {
+        margin-bottom: var(--spacing-xs);
+    }
+}
+
+.homeContent,
+.menuContent,
+.aboutContent {
+    height: 100%;
+
+    & > * {
+        padding-bottom: var(--spacing-md);
     }
 }
