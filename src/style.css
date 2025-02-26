@@ -81,12 +81,27 @@ header nav ul {
 
 .homeContent {
     height: 100%;
-}
 
-.homeContent .bgImg {
-    background-image: url("./assets/restaurant--tables.jpg");
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    & > * {
+        padding-bottom: var(--spacing-md);
+    }
+
+    & > *:not(:first-child) {
+        padding-top: var(--spacing-md);
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+
+    & > .bgImg {
+
+        background-image: url("./assets/restaurant--tables.jpg");
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    & h2 {
+        margin-bottom: var(--spacing-sm);
+    }
 }
