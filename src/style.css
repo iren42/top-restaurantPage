@@ -105,7 +105,12 @@ header {
     & nav button {
         padding: var(--spacing-xs) var(--spacing-xs);
         border-bottom: solid var(--foreground);
+
+        &:focus {
+            border-bottom: solid var(--pink);
+        }
     }
+
 
     & ul {
         display: flex;
