@@ -1,4 +1,5 @@
 :root {
+    --max-width: 1024px;
     --header-height: 3rem;
 
     --spacing-xxs: 0.25rem;
@@ -127,21 +128,21 @@ footer {
     & > * {
         padding-bottom: var(--spacing-md);
     }
-}
-
-.menuContent,
-.aboutContent {
-    max-width: 1080px;
-    margin: 0 auto;
 
     & h2 {
         margin-top: var(--spacing-lg);
     }
 }
 
+.menuContent,
+.aboutContent {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
 .homeContent {
     & > *:not(:first-child) {
-        max-width: 1080px;
+        max-width: var(--max-width);
         margin: 0 auto;
     }
 

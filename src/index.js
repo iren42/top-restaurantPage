@@ -1,5 +1,5 @@
 import "./style.css";
-import { homeContent, loadContent} from "./homeContent.js"
+import { homeContent, loadContent } from "./homeContent.js"
 import { menuContent } from "./menuContent.js";
 import { aboutContent } from "./aboutContent.js";
 
@@ -20,6 +20,17 @@ document.addEventListener("click", event =>
         content.replaceChildren();
         loadContent(homeContent);
     }
-
+    else if (event.target === menuBtn)
+    {
+        content.replaceChildren();
+        loadContent(menuContent);
+    }
+    else if (event.target === aboutBtn)
+    {
+        content.replaceChildren();
+        loadContent(aboutContent);
+    }
+    else
+        ;
 });
 // loadContent(aboutContent);
