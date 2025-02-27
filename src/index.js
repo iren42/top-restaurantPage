@@ -7,12 +7,14 @@ console.log("Hello");
 const homeBtn = document.querySelector("button#homeBtn");
 const menuBtn = document.querySelector("button#menuBtn");
 const aboutBtn = document.querySelector("button#aboutBtn");
+const brandBtn = document.querySelector("button#brandBtn");
 
 const content = document.querySelector("div#content");
 
 document.addEventListener("click", event =>
 {
-    if (event.target === homeBtn)
+    // console.log(event.target);
+    if (event.target === homeBtn || event.target === brandBtn)
     {
         content.replaceChildren();
         loadContent(homeContent);

@@ -98,7 +98,11 @@ header {
     padding-left: var(--spacing-sm);
     padding-right: var(--spacing-sm);
 
-    & button {
+    & #brandBtn {
+        font-size: var(--font-size-xl);
+    }
+
+    & nav button {
         padding: var(--spacing-xs) var(--spacing-xs);
         border-bottom: solid var(--foreground);
     }
@@ -187,5 +191,9 @@ footer {
 .aboutContent {
     & .phoneNumber {
         margin-bottom: var(--spacing-xs);
+    }
+
+    & a:first-of-type {
+        margin-right: var(--spacing-sm);
     }
 }
