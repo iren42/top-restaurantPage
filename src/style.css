@@ -106,11 +106,10 @@ header {
         padding: var(--spacing-xs) var(--spacing-xs);
         border-bottom: solid var(--foreground);
 
-        &:focus {
+        &.active {
             border-bottom: solid var(--pink);
         }
     }
-
 
     & ul {
         display: flex;
