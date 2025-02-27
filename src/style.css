@@ -35,7 +35,7 @@
 
 html,
 body {
-  min-height: 100%;
+    min-height: 100%;
 }
 
 #content {
@@ -165,6 +165,22 @@ footer {
 
     & img {
         border-radius: 6px;
+    }
+
+    & .click-zoom input[type=checkbox] {
+        display: none
+    }
+
+    & .click-zoom img {
+        cursor: zoom-in;
+    }
+
+    & .click-zoom input[type=checkbox]:checked ~ img {
+        cursor: zoom-out;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(3);
     }
 }
 

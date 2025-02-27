@@ -47,25 +47,34 @@ function createMenuContent()
 
         const dishTitle = document.createElement('h3');
         dishTitle.textContent = dish.title;
-        dishDiv.appendChild(dishTitle);
 
         const rowDiv = document.createElement('div');
         rowDiv.classList.add('row');
+
+        const zoom = document.createElement('button');
+        zoom.setAttribute('style', 'height: 200px; width: 300px;');
+        zoom.setAttribute('type', 'button');
+        zoom.classList.add('click-zoom');
+
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.setAttribute('type', 'checkbox');
 
         const dishImage = document.createElement('img');
         dishImage.src = dish.imageSrc;
         dishImage.alt = dish.imageAlt;
         dishImage.height = 200;
         dishImage.width = 300;
-        rowDiv.appendChild(dishImage);
 
         const dishDescription = document.createElement('p');
         dishDescription.classList.add('description');
         dishDescription.textContent = dish.description;
-        rowDiv.appendChild(dishDescription);
 
-        dishDiv.appendChild(rowDiv);
         menuContent.appendChild(dishDiv);
+        dishDiv.append(dishTitle, rowDiv);
+        rowDiv.append(zoom, dishDescription);
+        zoom.append(label);
+        label.append(input, dishImage);
     });
     return (menuContent);
 }
