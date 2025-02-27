@@ -30,3 +30,4 @@ document.addEventListener("click", event =>
     else
         ;
 });
+loadContent(homeContent);
