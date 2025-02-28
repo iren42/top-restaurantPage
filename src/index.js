@@ -4,6 +4,9 @@ import { menuContent } from "./menuContent.js";
 import { aboutContent } from "./aboutContent.js";
 
 console.log("Hello");
+if (process.env.NODE_ENV !== 'production') {
+    console.log('Looks like we are in development mode!');
+}
 const homeBtn = document.querySelector("button#homeBtn");
 const menuBtn = document.querySelector("button#menuBtn");
 const aboutBtn = document.querySelector("button#aboutBtn");
