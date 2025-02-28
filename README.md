@@ -9,11 +9,11 @@ Steps to run this website app:
 1. install npm dependencies
 ` npm install `
 2. create dist/ directory with all our bundled files
-` npx webpack `
+` npm run build `
 3. in dist/, open the file "index.html" with your browser.
 
 Or, from step 2:
 
 2. run
-` npx webpack serve `
+` npm run dev `
 3. open http://localhost:8080 in your browser.
