@@ -3,55 +3,80 @@ import { homeContent, loadContent } from "./homeContent.js"
 import { menuContent } from "./menuContent.js";
 import { aboutContent } from "./aboutContent.js";
 
-console.log("Hello");
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV !== 'production')
+{
     console.log('Looks like we are in development mode!');
 }
+
+class TabDOM
+{
+    #button;
+    #content;
+    constructor(button, content)
+    {
+        this.#button = button;
+        this.#content = content;
+    }
+    get button()
+    {
+        return (this.#button);
+    }
+    addActiveClass()
+    {
+        this.#button.classList.add("active");
+    }
+    removeActiveClass()
+    {
+        this.#button.classList.remove("active");
+    }
+    appendContent(parent)
+    {
+        if (!(parent instanceof Element))
+            return ;
+        parent.append(this.#content);
+    }
+}
+
 const homeBtn = document.querySelector("button#homeBtn");
 const menuBtn = document.querySelector("button#menuBtn");
 const aboutBtn = document.querySelector("button#aboutBtn");
 const brandBtn = document.querySelector("button#brandBtn");
 
-const navBtns = [
-    homeBtn,
-    menuBtn,
-    aboutBtn,
-];
-const content = document.querySelector("div#content");
+const contentDiv = document.querySelector("div#content");
+
+const tabs = [];
+if (menuBtn)
+    tabs.push(new TabDOM(menuBtn, menuContent));
+if (homeBtn)
+    tabs.push(new TabDOM(homeBtn, homeContent));
+if (aboutBtn)
+    tabs.push(new TabDOM(aboutBtn, aboutContent));
+if (brandBtn)
+    tabs.push(new TabDOM(brandBtn, homeContent));
+
+function removeAllActiveClass(arrayOfTabDOM)
+{
+    arrayOfTabDOM.forEach((item) =>
+    {
+        if (!(item instanceof TabDOM))
+            return ;
+        item.removeActiveClass();
+    });
+}
 
 document.addEventListener("click", event =>
 {
-    // console.log(event.target);
-    if (event.target === homeBtn || event.target === brandBtn)
+    let targetArray = tabs.filter(element => element.button === event.target);
+    if (targetArray.length !== 0)
     {
-        navBtns.forEach((nav) => {
-            nav.classList.remove("active");
-        });
-        homeBtn.classList.add("active");
-        content.replaceChildren();
-        loadContent(homeContent);
+        let [element] = targetArray;
+        removeAllActiveClass(tabs);
+        element.addActiveClass();
+        if (!contentDiv)
+            return ;
+        contentDiv.replaceChildren();
+        element.appendContent(contentDiv);
     }
-    else if (event.target === menuBtn)
-    {
-        navBtns.forEach((nav) =>
-        {
-            nav.classList.remove("active");
-        });
-        menuBtn.classList.add("active");
-        content.replaceChildren();
-        loadContent(menuContent);
-    }
-    else if (event.target === aboutBtn)
-    {
-        navBtns.forEach((nav) =>
-        {
-            nav.classList.remove("active");
-        });
-        aboutBtn.classList.add("active");
-        content.replaceChildren();
-        loadContent(aboutContent);
-    }
-    else
-        ;
 });
+
 loadContent(homeContent);
